@@ -2,10 +2,6 @@ import Cutie 1.0
 import QtQuick 2.14
 
 CutiePage {
-	Component.onDestruction: {
-		console.log("D'oh!")
-	}
-
 	ListView {
 		model: CutieWifiSettings.connections
 		anchors.fill: parent

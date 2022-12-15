@@ -12,7 +12,7 @@ CutieWindow {
 		{
 			text: qsTr("Wi-Fi"),
 			icon: "qrc:///icons/network-wireless.svg",
-			incubator: Qt.createComponent("Wifi.qml").incubateObject(null, {})
+			component: Qt.createComponent("Wifi.qml")
 		}
 	]
 
@@ -32,9 +32,9 @@ CutieWindow {
 				icon: root.pages[index]["icon"]
 
 				onClicked: {
-					if (root.pages[index]["incubator"].status === Component.Ready) {
+					if (root.pages[index]["component"].status === Component.Ready) {
 						root.pageStack.push(
-							root.pages[index]["incubator"].object
+							root.pages[index]["component"]
 							, {});
 					}
 				}
