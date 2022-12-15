@@ -11,7 +11,7 @@ CutieWindow {
 	property var pages: [
 		{
 			text: qsTr("Wi-Fi"),
-			icon: "qrc:///icons/network-wireless-connected.svg",
+			icon: "qrc:///icons/network-wireless.svg",
 			incubator: Qt.createComponent("Wifi.qml").incubateObject(null, {})
 		}
 	]

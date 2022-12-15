@@ -17,11 +17,10 @@ CutiePage {
 		}
 
 		delegate: CutieListItem {
+			icon: ("qrc:///icons/network-wireless-signal-" + (
+				Math.floor((CutieWifiSettings.connections[index]["Strength"] - 1) / 20)
+			).toString() + ".svg")
 			text: CutieWifiSettings.connections[index]["DisplayName"]
-		}
-
-		Component.onCompleted: {
-			console.log(CutieWifiSettings.connections);
 		}
 	}
 }
