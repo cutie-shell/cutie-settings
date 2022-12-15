@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.2
+Type=Application
+Name=Settings
+Exec=/usr/bin/cutie-settings
+TryExec=/usr/bin/cutie-settings
+Icon=cutie-settings
+Terminal=false
+StartupNotify=false

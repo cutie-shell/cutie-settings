@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="64"
+   height="64"
+   viewBox="0 0 64 64"
+   version="1.1"
+   id="svg1610"
+   sodipodi:docname="cutie-settings.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xml:space="preserve"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1612"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="8.9272231"
+     inkscape:cx="18.202749"
+     inkscape:cy="31.140703"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1610" /><defs
+     id="defs1588"><filter
+       id="deepin-music-a"
+       width="1.1388646"
+       height="1.1518519"
+       x="-0.062882096"
+       y="-0.066666667"
+       filterUnits="objectBoundingBox"><feOffset
+         dy="1"
+         in="SourceAlpha"
+         result="shadowOffsetOuter1"
+         id="feOffset1538" /><feGaussianBlur
+         in="shadowOffsetOuter1"
+         result="shadowBlurOuter1"
+         stdDeviation="1.5"
+         id="feGaussianBlur1540" /><feComposite
+         in="shadowBlurOuter1"
+         in2="SourceAlpha"
+         operator="out"
+         result="shadowBlurOuter1"
+         id="feComposite1542" /><feColorMatrix
+         in="shadowBlurOuter1"
+         result="shadowMatrixOuter1"
+         values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"
+         id="feColorMatrix1544" /><feMerge
+         id="feMerge1550"><feMergeNode
+           in="shadowMatrixOuter1"
+           id="feMergeNode1546" /><feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode1548" /></feMerge></filter><linearGradient
+       id="deepin-music-b"
+       x1="98.016%"
+       x2="0%"
+       y1="38.451%"
+       y2="41.845%"><stop
+         offset="0%"
+         stop-color="#0BA186"
+         id="stop1553" /><stop
+         offset="100%"
+         stop-color="#68C639"
+         id="stop1555" /></linearGradient><linearGradient
+       id="deepin-music-c"
+       x1="2.055%"
+       x2="96.944%"
+       y1="41.813%"
+       y2="34.714%"><stop
+         offset="0%"
+         stop-color="#417944"
+         stop-opacity=".381"
+         id="stop1558" /><stop
+         offset="100%"
+         stop-color="#002A35"
+         id="stop1560" /></linearGradient><linearGradient
+       id="deepin-music-d"
+       x1="50%"
+       x2="50%"
+       y1="0%"
+       y2="98.031%"><stop
+         offset="0%"
+         stop-color="#8DF34C"
+         id="stop1563" /><stop
+         offset="100%"
+         stop-color="#00CCB3"
+         id="stop1565" /></linearGradient><linearGradient
+       id="deepin-music-e"
+       x1="50%"
+       x2="50%"
+       y1="0%"
+       y2="98.031%"><stop
+         offset="0%"
+         stop-color="#8DF34C"
+         id="stop1568" /><stop
+         offset="100%"
+         stop-color="#00CCB3"
+         id="stop1570" /></linearGradient><linearGradient
+       id="deepin-music-h"
+       x1="50%"
+       x2="50%"
+       y1="0%"
+       y2="100%"><stop
+         offset="0%"
+         stop-color="#FFF"
+         id="stop1573" /><stop
+         offset="100%"
+         stop-color="#FFF"
+         stop-opacity=".7"
+         id="stop1575" /></linearGradient><path
+       id="deepin-music-g"
+       d="M35.9302044,14.0362092 C35.9766316,14.2799521 36,14.5275258 36,14.7756509 L36,35 C36,37.7614237 33.7614237,40 31,40 C28.2385763,40 26,37.7614237 26,35 C26,32.2385763 28.2385763,30 31,30 C32.1261445,30 33.1653335,30.3723009 34.0011995,31.0005351 L34,17.5701049 C34,16.8425868 33.41023,16.2528168 32.6827119,16.2528168 C32.6059652,16.2528168 32.5293654,16.2595238 32.4537865,16.2728612 L18.0883628,18.807936 C17.4588869,18.91902 17,19.4659774 17,20.1051797 L17,40 C17,42.7614237 14.7614237,45 12,45 C9.23857625,45 7,42.7614237 7,40 C7,37.2385763 9.23857625,35 12,35 C13.1261445,35 14.1653335,35.3723009 15.0011995,36.0005351 L15,17.2701788 C15,15.3727593 16.3485144,13.7431401 18.2124227,13.38811 L31.3086939,10.8935821 C33.4527013,10.4851997 35.521822,11.8922018 35.9302044,14.0362092 Z" /><filter
+       id="deepin-music-f"
+       width="1.0827586"
+       height="1.0994823"
+       x="-0.04137931"
+       y="-0.035111398"
+       filterUnits="objectBoundingBox"><feOffset
+         dy="1"
+         in="SourceAlpha"
+         result="shadowOffsetOuter1"
+         id="feOffset1579" /><feGaussianBlur
+         in="shadowOffsetOuter1"
+         result="shadowBlurOuter1"
+         stdDeviation=".5"
+         id="feGaussianBlur1581" /><feComposite
+         in="shadowBlurOuter1"
+         in2="SourceAlpha"
+         operator="out"
+         result="shadowBlurOuter1"
+         id="feComposite1583" /><feColorMatrix
+         in="shadowBlurOuter1"
+         values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0"
+         id="feColorMatrix1585" /></filter></defs><rect
+     style="fill:#a4a4a4;fill-opacity:1;stroke-width:12.3756"
+     id="rect1824"
+     width="64"
+     height="64"
+     x="0"
+     y="0"
+     ry="17.17137" /><g
+     id="g10870"
+     transform="matrix(1.2248817,0,0,1.2247261,12.713014,12.715463)"
+     style="fill:#ffffff;fill-opacity:1"><g
+       id="g10816"
+       style="fill:#ffffff;fill-opacity:1">
+	<path
+   d="m 29.93,18.891 c 0.859,0 1.56,-0.696 1.56,-1.561 v -3.176 c 0,-0.861 -0.697,-1.56 -1.56,-1.56 h -1.756 c 0,-10e-4 0,-0.002 -0.004,-0.006 -0.307,-1.215 -0.789,-2.361 -1.418,-3.41 l 1.223,-1.225 c 0.607,-0.609 0.607,-1.596 0,-2.205 L 25.729,3.502 c -0.293,-0.293 -0.69,-0.457 -1.104,-0.457 -0.412,0 -0.812,0.165 -1.103,0.458 L 22.299,4.726 C 21.26,4.103 20.123,3.622 18.918,3.314 18.914,3.313 18.906,2.411 18.898,1.549 18.895,0.692 18.2,0 17.34,0 h -3.175 c -0.416,0 -0.814,0.166 -1.107,0.461 -0.293,0.295 -0.456,0.696 -0.452,1.111 l 0.015,1.706 C 11.377,3.542 10.204,4.078 9.13,4.72 L 7.915,3.502 C 7.623,3.209 7.226,3.045 6.812,3.045 6.398,3.045 6.001,3.21 5.709,3.502 L 3.46,5.75 c -0.608,0.609 -0.609,1.596 0,2.205 l 1.223,1.223 c -0.626,1.05 -1.108,2.195 -1.416,3.41 -10e-4,0.004 -10e-4,0.005 -0.003,0.006 H 1.562 c -0.861,0 -1.56,0.698 -1.56,1.56 v 3.179 c 0,0.861 0.698,1.562 1.56,1.562 H 3.256 C 3.241,18.833 3.229,18.776 3.214,18.711 c 0.015,0.059 0.027,0.118 0.042,0.176 0.308,1.231 0.793,2.394 1.429,3.455 l -1.222,1.221 c -0.293,0.291 -0.457,0.688 -0.457,1.104 0,0.416 0.164,0.811 0.457,1.104 l 2.247,2.248 c 0.292,0.291 0.688,0.457 1.102,0.457 0.413,0 0.811,-0.166 1.103,-0.457 l 1.221,-1.223 c 1.071,0.641 2.245,1.131 3.488,1.438 L 12.61,29.92 c -0.004,0.416 0.159,0.816 0.452,1.111 0.293,0.295 0.691,0.461 1.107,0.461 h 3.176 c 0.855,0 1.553,-0.691 1.56,-1.55 0.006,-0.851 0.012,-1.732 0.019,-1.733 1.204,-0.31 2.34,-0.789 3.379,-1.41 l 1.223,1.221 c 0.609,0.608 1.598,0.608 2.205,0 l 2.246,-2.243 c 0.606,-0.609 0.608,-1.597 0,-2.207 l -1.224,-1.224 c 0.638,-1.062 1.121,-2.224 1.433,-3.455 0.016,-0.059 0.016,-0.055 0,0.008 h 1.748 z m -14.21,1.252 c -2.421,0 -4.384,-1.965 -4.384,-4.385 0,-2.419 1.963,-4.385 4.384,-4.385 2.421,0 4.384,1.964 4.384,4.385 0,2.422 -1.963,4.385 -4.384,4.385 z"
+   id="path10814"
+   style="fill:#ffffff;fill-opacity:1" />
+</g><g
+       id="g10818"
+       style="fill:#ffffff;fill-opacity:1">
+</g><g
+       id="g10820"
+       style="fill:#ffffff;fill-opacity:1">
+</g><g
+       id="g10822"
+       style="fill:#ffffff;fill-opacity:1">
+</g><g
+       id="g10824"
+       style="fill:#ffffff;fill-opacity:1">
+</g><g
+       id="g10826"
+       style="fill:#ffffff;fill-opacity:1">
+</g><g
+       id="g10828"
+       style="fill:#ffffff;fill-opacity:1">
+</g><g
+       id="g10830"
+       style="fill:#ffffff;fill-opacity:1">
+</g><g
+       id="g10832"
+       style="fill:#ffffff;fill-opacity:1">
+</g><g
+       id="g10834"
+       style="fill:#ffffff;fill-opacity:1">
+</g><g
+       id="g10836"
+       style="fill:#ffffff;fill-opacity:1">
+</g><g
+       id="g10838"
+       style="fill:#ffffff;fill-opacity:1">
+</g><g
+       id="g10840"
+       style="fill:#ffffff;fill-opacity:1">
+</g><g
+       id="g10842"
+       style="fill:#ffffff;fill-opacity:1">
+</g><g
+       id="g10844"
+       style="fill:#ffffff;fill-opacity:1">
+</g><g
+       id="g10846"
+       style="fill:#ffffff;fill-opacity:1">
+</g></g></svg>
