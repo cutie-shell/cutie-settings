@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<RCC>
-    <qresource prefix="/">
-        <file alias="main.qml">../src/qml/main.qml</file>
-        <file alias="Wifi.qml">../src/qml/Wifi.qml</file>
-    </qresource>
-</RCC>

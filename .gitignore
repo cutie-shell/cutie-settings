@@ -9,3 +9,4 @@ cutie-settings
 *adaptor.cpp
 *adaptor.h
 *.so
+build

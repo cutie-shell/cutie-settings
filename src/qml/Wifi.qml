@@ -4,17 +4,23 @@ import QtQuick.Layouts 1.15
 
 CutiePage {
 	ListView {
-		model: CutieWifiSettings.connections
+		model: CutieWifiSettings.accessPoints
 		anchors.fill: parent
 		anchors.margins: 10
 		spacing: 0
+
+		Component.onCompleted: {
+			CutieWifiSettings.requestScan();
+		}
+
 		header: ColumnLayout {
+			width: parent.width
 			CutiePageHeader {
 				id: header
 				title: qsTr("Wi-Fi")
 			}
 			Text {
-				visible: "Strength" in CutieWifiSettings.activeConnection
+				visible: "Strength" in CutieWifiSettings.activeAccessPoint.data
 				text: qsTr("Connected")
 				font.pixelSize: 16
 				font.family: "Lato"
@@ -27,11 +33,16 @@ CutiePage {
 				Layout.bottomMargin: 3
 			}
 			CutieListItem {
-				visible: "Strength" in CutieWifiSettings.activeConnection
+				visible: "Strength" in CutieWifiSettings.activeAccessPoint.data
 				icon: visible ? ("qrc:///icons/network-wireless-signal-" + (
-					Math.floor((CutieWifiSettings.activeConnection["Strength"] - 1) / 20)
+					Math.floor((CutieWifiSettings.activeAccessPoint.data["Strength"] - 1) / 20)
 				).toString() + ".svg") : ""
-				text: visible ? CutieWifiSettings.activeConnection["DisplayName"] : ""
+				text: visible ? CutieWifiSettings.activeAccessPoint.data["Ssid"] : ""
+				subText: visible ? ((CutieWifiSettings.activeAccessPoint.data["Frequency"] > 4 ? "5GHz " : "2.4GHz ") 
+					+ ((CutieWifiSettings.activeAccessPoint.data["Flags"] & 0x1) == 0 ? "Open" : 
+					((CutieWifiSettings.activeAccessPoint.data["RsnFlags"] & 0x100) > 0 ? "WPA2-PSK" :
+					(CutieWifiSettings.activeAccessPoint.data["WpaFlags"] & 0x100) > 0 ? "WPA1-PSK" : 
+					"Unknown Security"))) : ""
 			}
 			Text {
 				text: qsTr("Available")
@@ -47,13 +58,23 @@ CutiePage {
 			}
 		}
 
-		delegate: CutieListItem {
-			visible: CutieWifiSettings.connections[index]["Path"] != CutieWifiSettings.activeConnection["Path"]
-			height: visible ? 30 : 0
-			icon: ("qrc:///icons/network-wireless-signal-" + (
-				Math.floor((CutieWifiSettings.connections[index]["Strength"] - 1) / 20)
-			).toString() + ".svg")
-			text: CutieWifiSettings.connections[index]["DisplayName"]
+		delegate: Item {
+			visible: (modelData.path != CutieWifiSettings.activeAccessPoint.path &&
+				litem.text != "")
+			height: visible ? litem.height : 0
+			width: parent.width
+			CutieListItem {
+				id: litem
+				icon: ("qrc:///icons/network-wireless-signal-" + (
+					Math.floor((modelData.data["Strength"] - 1) / 20)
+				).toString() + ".svg")
+				text: modelData.data["Ssid"]
+				subText: ((modelData.data["Frequency"] > 4000 ? "5GHz " : "2.4GHz ") 
+					+ ((modelData.data["Flags"] & 0x1) == 0 ? "Open" : 
+					((modelData.data["RsnFlags"] & 0x100) > 0 ? "WPA2-PSK" :
+					(modelData.data["WpaFlags"] & 0x100) > 0 ? "WPA1-PSK" : 
+					"Unknown Security")))
+			}
 		}
 	}
 }
