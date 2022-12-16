@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Wifi.qml</file>
+        <file>SavedWifis.qml</file>
     </qresource>
 </RCC>

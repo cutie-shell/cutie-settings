@@ -76,5 +76,24 @@ CutiePage {
 					"Unknown Security")))
 			}
 		}
+
+		footer: Item {
+			height: footbutton.height + 40
+		}
+	}
+
+	CutieButton {
+		id: footbutton
+		anchors.bottom: parent.bottom
+		anchors.left: parent.left
+		anchors.right: parent.right
+		anchors.margins: 20
+		buttonText: qsTr("Saved Networks")
+		property var page: Qt.createComponent("SavedWifis.qml")
+		onClicked: {
+			if (page.status === Component.Ready) {
+				root.pageStack.push(page, {});
+			}
+		}
 	}
 }
