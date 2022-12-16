@@ -3,8 +3,8 @@ import QtQuick 2.14
 
 CutieWindow {
 	id: root
-	width: u(400)
-	height: u(800)
+	width: 400
+	height: 800
 	visible: true
 	title: qsTr("Settings")
 
