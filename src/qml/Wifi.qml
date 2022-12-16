@@ -3,6 +3,9 @@ import QtQuick 2.14
 import QtQuick.Layouts 1.15
 
 CutiePage {
+	id: page
+	property var pskPage: Qt.createComponent("WifiPsk.qml")
+	property var savedPage: Qt.createComponent("SavedWifis.qml")
 	ListView {
 		model: CutieWifiSettings.accessPoints
 		anchors.fill: parent
@@ -79,6 +82,13 @@ CutiePage {
 						e => e.data["connection"]["id"] == modelData.data["Ssid"])[0];
 					if (conn)
 						CutieWifiSettings.activateConnection(conn, modelData);
+					else if ((modelData.data["Flags"] & 0x1) == 1) {
+						if (page.pskPage.status === Component.Ready) {
+							mainWindow.pageStack.push(page.pskPage, {ap: modelData});
+						}
+					} else {
+						CutieWifiSettings.addAndActivateConnection(modelData, "");
+					}
 					CutieWifiSettings.requestScan();
 				}
 			}
@@ -96,10 +106,9 @@ CutiePage {
 		anchors.right: parent.right
 		anchors.margins: 20
 		buttonText: qsTr("Saved Networks")
-		property var page: Qt.createComponent("SavedWifis.qml")
 		onClicked: {
-			if (page.status === Component.Ready) {
-				root.pageStack.push(page, {});
+			if (page.savedPage.status === Component.Ready) {
+				mainWindow.pageStack.push(page.savedPage, {});
 			}
 		}
 	}

@@ -2,7 +2,7 @@ import Cutie 1.0
 import QtQuick 2.14
 
 CutieWindow {
-	id: root
+	id: mainWindow
 	width: 400
 	height: 800
 	visible: true
@@ -17,24 +17,24 @@ CutieWindow {
 	]
 
 	initialPage: CutiePage {
-		width: root.width
-		height: root.height
+		width: mainWindow.width
+		height: mainWindow.height
 		ListView {
-			model: root.pages
+			model: mainWindow.pages
 			anchors.fill: parent
 			header: CutiePageHeader {
 				id: header
-				title: root.title
+				title: mainWindow.title
 			}
 
 			delegate: CutieListItem {
-				text: root.pages[index]["text"]
-				icon: root.pages[index]["icon"]
+				text: mainWindow.pages[index]["text"]
+				icon: mainWindow.pages[index]["icon"]
 
 				onClicked: {
-					if (root.pages[index]["component"].status === Component.Ready) {
-						root.pageStack.push(
-							root.pages[index]["component"]
+					if (mainWindow.pages[index]["component"].status === Component.Ready) {
+						mainWindow.pageStack.push(
+							mainWindow.pages[index]["component"]
 							, {});
 					}
 				}
