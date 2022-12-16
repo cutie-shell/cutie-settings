@@ -3,7 +3,7 @@
 Makefile
 qrc_*.cpp
 moc_*
-cutie-settings-daemon
+cutie-settings
 *interface.cpp
 *interface.h
 *adaptor.cpp
