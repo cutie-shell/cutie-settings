@@ -1,6 +1,6 @@
 QT += quick
 
-CONFIG += c++11 core qml quick qtquickcompiler
+CONFIG += c++11 core qml quick qtquickcompiler lrelease embed_translations
 
 
 # You can make your code fail to compile if it uses deprecated APIs.
@@ -31,6 +31,4 @@ icon.path = /usr/share/icons/hicolor/scalable/apps/
 
 INSTALLS += desktopfile icon
 
-
-
-
+TRANSLATIONS = translations/cutie-settings_fi.ts
