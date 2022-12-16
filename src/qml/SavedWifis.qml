@@ -9,10 +9,6 @@ CutiePage {
 		anchors.margins: 10
 		spacing: 0
 
-		Component.onCompleted: {
-			CutieWifiSettings.requestScan();
-		}
-
 		header: ColumnLayout {
 			width: parent.width
 			CutiePageHeader {
@@ -26,13 +22,19 @@ CutiePage {
 			width: parent.width
 			CutieListItem {
 				id: litem
-				text: modelData.data.connection.id
-				subText: CutieWifiSettings.activeAccessPoint.data["Ssid"] == modelData.data.connection.id 
+				text: "connection" in modelData.data ? ("id" in modelData.data.connection ? modelData.data.connection.id: "") : ""
+				subText: CutieWifiSettings.activeAccessPoint 
+					&& "Ssid" in CutieWifiSettings.activeAccessPoint.data 
+					&& "connection" in modelData.data ?
+					(CutieWifiSettings.activeAccessPoint.data["Ssid"] == modelData.data.connection.id 
 					? qsTr("Connected") :
 					((CutieWifiSettings.accessPoints.filter(
 					e => e.data["Ssid"] == modelData.data.connection.id)
-					.length > 0) ? qsTr("Available") : qsTr("Unavailable"))
-				icon: (CutieWifiSettings.accessPoints.filter(
+					.length > 0) ? qsTr("Available") : qsTr("Unavailable"))) : ""
+				icon: CutieWifiSettings.activeAccessPoint 
+					&& "Ssid" in CutieWifiSettings.activeAccessPoint.data 
+					&& "connection" in modelData.data &&
+					(CutieWifiSettings.accessPoints.filter(
 					e => e.data["Ssid"] == modelData.data.connection.id)
 					.length > 0) ? ("qrc:///icons/network-wireless-signal-" + (
 					Math.floor((CutieWifiSettings.accessPoints.filter(
@@ -40,6 +42,10 @@ CutiePage {
 					)[0].data["Strength"] - 1) / 20)
 					).toString() + ".svg") 
 					: "qrc:///icons/network-wireless-offline.svg"
+				onClicked: {
+					CutieWifiSettings.activateConnection(modelData, null);
+					CutieWifiSettings.requestScan();
+				}
 			}
 		}
 	}

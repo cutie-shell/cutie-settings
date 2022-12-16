@@ -20,7 +20,7 @@ CutiePage {
 				title: qsTr("Wi-Fi")
 			}
 			Text {
-				visible: "Strength" in CutieWifiSettings.activeAccessPoint.data
+				visible: CutieWifiSettings.activeAccessPoint
 				text: qsTr("Connected")
 				font.pixelSize: 16
 				font.family: "Lato"
@@ -33,7 +33,7 @@ CutiePage {
 				Layout.bottomMargin: 3
 			}
 			CutieListItem {
-				visible: "Strength" in CutieWifiSettings.activeAccessPoint.data
+				visible: CutieWifiSettings.activeAccessPoint
 				icon: visible ? ("qrc:///icons/network-wireless-signal-" + (
 					Math.floor((CutieWifiSettings.activeAccessPoint.data["Strength"] - 1) / 20)
 				).toString() + ".svg") : ""
@@ -59,10 +59,10 @@ CutiePage {
 		}
 
 		delegate: Item {
-			visible: (modelData.path != CutieWifiSettings.activeAccessPoint.path &&
-				litem.text != "")
+			visible: CutieWifiSettings.activeAccessPoint ? (modelData.path != CutieWifiSettings.activeAccessPoint.path &&
+				litem.text != "") : true
 			height: visible ? litem.height : 0
-			width: parent.width
+			width: parent ? parent.width : 0
 			CutieListItem {
 				id: litem
 				icon: ("qrc:///icons/network-wireless-signal-" + (
@@ -74,6 +74,13 @@ CutiePage {
 					((modelData.data["RsnFlags"] & 0x100) > 0 ? "WPA2-PSK" :
 					(modelData.data["WpaFlags"] & 0x100) > 0 ? "WPA1-PSK" : 
 					"Unknown Security")))
+				onClicked: {
+					var conn = CutieWifiSettings.savedConnections.filter(
+						e => e.data["connection"]["id"] == modelData.data["Ssid"])[0];
+					if (conn)
+						CutieWifiSettings.activateConnection(conn, modelData);
+					CutieWifiSettings.requestScan();
+				}
 			}
 		}
 
