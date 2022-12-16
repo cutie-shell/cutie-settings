@@ -27,6 +27,11 @@ CutiePage {
 			CutieListItem {
 				id: litem
 				text: modelData.data.connection.id
+				subText: CutieWifiSettings.activeAccessPoint.data["Ssid"] == modelData.data.connection.id 
+					? qsTr("Connected") :
+					((CutieWifiSettings.accessPoints.filter(
+					e => e.data["Ssid"] == modelData.data.connection.id)
+					.length > 0) ? qsTr("Available") : qsTr("Unavailable"))
 				icon: (CutieWifiSettings.accessPoints.filter(
 					e => e.data["Ssid"] == modelData.data.connection.id)
 					.length > 0) ? ("qrc:///icons/network-wireless-signal-" + (
