@@ -17,19 +17,29 @@
         <translation>Tallennetut verkot</translation>
     </message>
     <message>
-        <location filename="../src/qml/SavedWifis.qml" line="30"/>
+        <location filename="../src/qml/SavedWifis.qml" line="34"/>
         <source>Connected</source>
         <translation>Yhdistetty</translation>
     </message>
     <message>
-        <location filename="../src/qml/SavedWifis.qml" line="33"/>
+        <location filename="../src/qml/SavedWifis.qml" line="37"/>
         <source>Available</source>
         <translation>Saatavilla</translation>
     </message>
     <message>
-        <location filename="../src/qml/SavedWifis.qml" line="33"/>
+        <location filename="../src/qml/SavedWifis.qml" line="37"/>
         <source>Unavailable</source>
         <translation>Ei saatavilla</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SavedWifis.qml" line="62"/>
+        <source>Connect</source>
+        <translation>Yhdistä</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SavedWifis.qml" line="71"/>
+        <source>Forget</source>
+        <translation>Unohda</translation>
     </message>
 </context>
 <context>
@@ -40,17 +50,22 @@
         <translation>Wi-Fi</translation>
     </message>
     <message>
-        <location filename="../src/qml/Wifi.qml" line="27"/>
+        <location filename="../src/qml/Wifi.qml" line="39"/>
         <source>Connected</source>
         <translation>Yhdistetty</translation>
     </message>
     <message>
-        <location filename="../src/qml/Wifi.qml" line="51"/>
+        <location filename="../src/qml/Wifi.qml" line="64"/>
         <source>Available</source>
         <translation>Saatavilla</translation>
     </message>
     <message>
-        <location filename="../src/qml/Wifi.qml" line="108"/>
+        <location filename="../src/qml/Wifi.qml" line="117"/>
+        <source>Wi-Fi is disabled</source>
+        <translation>Wi-Fi on pois päältä</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Wifi.qml" line="135"/>
         <source>Saved Networks</source>
         <translation>Tallennetut verkot</translation>
     </message>
