@@ -9,7 +9,7 @@ CutiePage {
 	CutiePageHeader {
 		id: header
 		title: qsTr("Password")
-		description: "Network \"" + ap.data["Ssid"] + "\" requires authentication."
+		description: qsTr("Network \"%1\" requires authentication.").arg(ap.data["Ssid"])
 	}
 	Rectangle {
 		color: (Atmosphere.variant == "dark") ? "#ffffff" : "#000000"
