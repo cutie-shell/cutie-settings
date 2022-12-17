@@ -23,6 +23,10 @@ CutiePage {
 			CutieListItem {
 				id: litem
 				text: "connection" in modelData.data ? ("id" in modelData.data.connection ? modelData.data.connection.id: "") : ""
+				highlighted: optionRow.visible
+				Behavior on height {
+					NumberAnimation { duration: 200 }
+				}
 				subText: CutieWifiSettings.activeAccessPoint 
 					&& "Ssid" in CutieWifiSettings.activeAccessPoint.data 
 					&& "connection" in modelData.data ?
@@ -43,8 +47,32 @@ CutiePage {
 					).toString() + ".svg") 
 					: "qrc:///icons/network-wireless-offline.svg"
 				onClicked: {
-					CutieWifiSettings.activateConnection(modelData, null);
-					CutieWifiSettings.requestScan();
+					optionRow.visible = !optionRow.visible;
+					litem.height = optionRow.visible ? 95 : 50;
+				}
+				Row {
+					id: optionRow
+					visible: false
+					y: 55
+					x: 25
+					spacing: 10
+					CutieButton {
+						id: connectBtn
+						buttonText: "Connect"
+						onClicked: {
+							CutieWifiSettings.activateConnection(modelData, null);
+							CutieWifiSettings.requestScan();
+						}
+					}
+					CutieButton {
+						id: forgetBtn
+						buttonText: "Forget"
+    						color: (Atmosphere.variant == "dark") ? "#ffcccc" : "#cc0000"
+						onClicked: {
+							modelData.deleteConnection();
+							CutieWifiSettings.requestScan();
+						}
+					}
 				}
 			}
 		}
