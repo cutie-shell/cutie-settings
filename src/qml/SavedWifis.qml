@@ -56,9 +56,11 @@ CutiePage {
 					y: 55
 					x: 25
 					spacing: 10
+					width: parent.width
 					CutieButton {
 						id: connectBtn
-						buttonText: "Connect"
+						buttonText: qsTr("Connect")
+						width: optionRow.width / 2 - 30
 						onClicked: {
 							CutieWifiSettings.activateConnection(modelData, null);
 							CutieWifiSettings.requestScan();
@@ -66,7 +68,8 @@ CutiePage {
 					}
 					CutieButton {
 						id: forgetBtn
-						buttonText: "Forget"
+						buttonText: qsTr("Forget")
+						width: optionRow.width / 2 - 30
     						color: (Atmosphere.variant == "dark") ? "#ffcccc" : "#cc0000"
 						onClicked: {
 							modelData.deleteConnection();
