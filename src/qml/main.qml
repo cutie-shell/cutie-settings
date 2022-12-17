@@ -13,6 +13,11 @@ CutieWindow {
 			text: qsTr("Wi-Fi"),
 			icon: "qrc:///icons/network-wireless.svg",
 			component: Qt.createComponent("Wifi.qml")
+		},
+		{
+			text: qsTr("About"),
+			icon: "qrc:///icons/info.svg",
+			component: Qt.createComponent("About.qml")
 		}
 	]
 

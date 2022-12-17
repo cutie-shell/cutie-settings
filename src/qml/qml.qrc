@@ -4,5 +4,6 @@
         <file>Wifi.qml</file>
         <file>SavedWifis.qml</file>
         <file>WifiPsk.qml</file>
+        <file>About.qml</file>
     </qresource>
 </RCC>
