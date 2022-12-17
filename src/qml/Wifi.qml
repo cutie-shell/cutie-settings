@@ -21,6 +21,18 @@ CutiePage {
 			CutiePageHeader {
 				id: header
 				title: qsTr("Wi-Fi")
+				width: parent.width
+
+				CutieToggle {
+					anchors.right: parent.right
+					anchors.verticalCenter: parent.verticalCenter
+					anchors.margins: 10
+					value: CutieWifiSettings.wirelessEnabled
+
+					onValueChanged: {
+						CutieWifiSettings.wirelessEnabled = value;
+					}
+				}
 			}
 			Text {
 				visible: CutieWifiSettings.activeAccessPoint
@@ -48,6 +60,7 @@ CutiePage {
 					"Unknown Security"))) : ""
 			}
 			Text {
+				visible: CutieWifiSettings.wirelessEnabled
 				text: qsTr("Available")
 				font.pixelSize: 16
 				font.family: "Lato"
@@ -97,6 +110,20 @@ CutiePage {
 		footer: Item {
 			height: footbutton.height + 40
 		}
+	}
+
+	Text {
+		visible: !CutieWifiSettings.wirelessEnabled
+		text: qsTr("Wi-Fi is disabled")
+		anchors.centerIn: parent
+		anchors.margins: 20
+		font.pixelSize: 24
+		horizontalAlignment: Text.AlignHCenter
+		verticalAlignment: Text.AlignVCenter
+		font.family: "Lato"
+		font.weight: Font.Normal
+		color: (Atmosphere.variant == "dark") ? "white" : "black"
+		elide: Text.ElideRight
 	}
 
 	CutieButton {
