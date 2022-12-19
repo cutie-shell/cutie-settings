@@ -7,7 +7,8 @@ Build-Depends: pkg-kde-tools,
                qtbase5-dev,
                pkg-config,
                qtdeclarative5-dev,
-               libqt5dbus5
+               libqt5dbus5,
+               qttools5-dev-tools
 Standards-Version: 4.5.1
 
 Package: cutie-settings
