@@ -9,7 +9,6 @@ CutiePage {
 	ListView {
 		model: CutieWifiSettings.accessPoints
 		anchors.fill: parent
-		anchors.margins: 10
 		spacing: 0
 
 		Component.onCompleted: {

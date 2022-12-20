@@ -6,7 +6,6 @@ CutiePage {
 	ListView {
 		model: CutieWifiSettings.savedConnections
 		anchors.fill: parent
-		anchors.margins: 10
 		spacing: 0
 
 		header: ColumnLayout {
