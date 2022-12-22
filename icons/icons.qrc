@@ -8,6 +8,7 @@
         <file>network-wireless-signal-4.svg</file>
         <file>network-wireless-offline.svg</file>
         <file>info.svg</file>
+        <file>audio.svg</file>
         <file>cutie.png</file>
     </qresource>
 </RCC>
