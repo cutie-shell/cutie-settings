@@ -39,7 +39,7 @@ CutieWindow {
 
 			delegate: CutieListItem {
 				text: mainWindow.pages[index]["text"]
-				icon: mainWindow.pages[index]["icon"]
+				icon.source: mainWindow.pages[index]["icon"]
 
 				onClicked: {
 					if (mainWindow.pages[index]["component"].status === Component.Ready) {

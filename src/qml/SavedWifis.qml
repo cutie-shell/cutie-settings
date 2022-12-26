@@ -1,5 +1,6 @@
 import Cutie 1.0
 import QtQuick 2.14
+import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 
 CutiePage {
@@ -34,7 +35,7 @@ CutiePage {
 					((CutieWifiSettings.accessPoints.filter(
 					e => e.data["Ssid"] == modelData.data.connection.id)
 					.length > 0) ? qsTr("Available") : qsTr("Unavailable"))) : ""
-				icon: CutieWifiSettings.activeAccessPoint 
+				icon.source: CutieWifiSettings.activeAccessPoint 
 					&& "Ssid" in CutieWifiSettings.activeAccessPoint.data 
 					&& "connection" in modelData.data &&
 					(CutieWifiSettings.accessPoints.filter(
@@ -46,31 +47,22 @@ CutiePage {
 					).toString() + ".svg") 
 					: "qrc:///icons/network-wireless-offline.svg"
 				onClicked: {
-					optionRow.visible = !optionRow.visible;
-					litem.height = optionRow.visible ? 95 : 50;
+					menu.open();
 				}
-				Row {
+				menu: CutieMenu {
 					id: optionRow
-					visible: false
-					y: 55
-					x: 25
-					spacing: 10
-					width: parent.width
-					CutieButton {
+					CutieMenuItem {
 						id: connectBtn
-						buttonText: qsTr("Connect")
-						width: optionRow.width / 2 - 30
-						onClicked: {
+						text: qsTr("Connect")
+						onTriggered: {
 							CutieWifiSettings.activateConnection(modelData, null);
 							CutieWifiSettings.requestScan();
 						}
 					}
-					CutieButton {
+					CutieMenuItem {
 						id: forgetBtn
-						buttonText: qsTr("Forget")
-						width: optionRow.width / 2 - 30
-    						color: (Atmosphere.variant == "dark") ? "#ffcccc" : "#cc0000"
-						onClicked: {
+						text: qsTr("Forget")
+						onTriggered: {
 							modelData.deleteConnection();
 							CutieWifiSettings.requestScan();
 						}

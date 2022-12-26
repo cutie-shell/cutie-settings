@@ -26,10 +26,10 @@ CutiePage {
 					anchors.right: parent.right
 					anchors.verticalCenter: parent.verticalCenter
 					anchors.margins: 10
-					value: CutieWifiSettings.wirelessEnabled
+					checked: CutieWifiSettings.wirelessEnabled
 
-					onValueChanged: {
-						CutieWifiSettings.wirelessEnabled = value;
+					onToggled: {
+						CutieWifiSettings.wirelessEnabled = checked;
 					}
 				}
 			}
@@ -48,7 +48,7 @@ CutiePage {
 			}
 			CutieListItem {
 				visible: CutieWifiSettings.activeAccessPoint
-				icon: visible ? ("qrc:///icons/network-wireless-signal-" + (
+				icon.source: visible ? ("qrc:///icons/network-wireless-signal-" + (
 					Math.floor((CutieWifiSettings.activeAccessPoint.data["Strength"] - 1) / 20)
 				).toString() + ".svg") : ""
 				text: visible ? CutieWifiSettings.activeAccessPoint.data["Ssid"] : ""
@@ -80,7 +80,7 @@ CutiePage {
 			width: parent ? parent.width : 0
 			CutieListItem {
 				id: litem
-				icon: ("qrc:///icons/network-wireless-signal-" + (
+				icon.source: ("qrc:///icons/network-wireless-signal-" + (
 					Math.floor((modelData.data["Strength"] - 1) / 20)
 				).toString() + ".svg")
 				text: modelData.data["Ssid"]

@@ -15,15 +15,15 @@ CutiePage {
 			anchors.right: parent.right
 			anchors.verticalCenter: parent.verticalCenter
 			anchors.margins: 10
-			value: !CutieVolume.muted
+			checked: !CutieVolume.muted
 
 			onToggled: {
-				CutieVolume.muted = !value;
+				CutieVolume.muted = !checked;
 			}
 			Connections {
 				target: CutieVolume
 				function onMutedChanged(m) {
-					muteToggle.value = !m;
+					muteToggle.checked = !m;
 				}
 			}
 		}
