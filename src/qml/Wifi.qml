@@ -6,7 +6,7 @@ CutiePage {
 	id: page
 	property var pskPage: Qt.createComponent("WifiPsk.qml")
 	property var savedPage: Qt.createComponent("SavedWifis.qml")
-	ListView {
+	CutieListView {
 		model: CutieWifiSettings.accessPoints
 		anchors.fill: parent
 		spacing: 0
@@ -25,7 +25,8 @@ CutiePage {
 				CutieToggle {
 					anchors.right: parent.right
 					anchors.verticalCenter: parent.verticalCenter
-					anchors.margins: 10
+					anchors.verticalCenterOffset: 5
+					anchors.rightMargin: 15
 					checked: CutieWifiSettings.wirelessEnabled
 
 					onToggled: {
@@ -33,20 +34,17 @@ CutiePage {
 					}
 				}
 			}
-			Text {
+			CutieLabel {
 				visible: CutieWifiSettings.activeAccessPoint
 				text: qsTr("Connected")
-				font.pixelSize: 16
-				font.family: "Lato"
-				font.weight: Font.Normal
 				horizontalAlignment: Text.AlignLeft
-				color: (Atmosphere.variant == "dark") ? "#ffffff" : "#000000"
 				Layout.leftMargin: 20
 				Layout.rightMargin: 20
 				Layout.topMargin: 10
 				Layout.bottomMargin: 3
 			}
 			CutieListItem {
+				Layout.fillWidth: true
 				visible: CutieWifiSettings.activeAccessPoint
 				icon.source: visible ? ("qrc:///icons/network-wireless-signal-" + (
 					Math.floor((CutieWifiSettings.activeAccessPoint.data["Strength"] - 1) / 20)
@@ -58,14 +56,10 @@ CutiePage {
 					(CutieWifiSettings.activeAccessPoint.data["WpaFlags"] & 0x100) > 0 ? "WPA1-PSK" : 
 					"Unknown Security"))) : ""
 			}
-			Text {
+			CutieLabel {
 				visible: CutieWifiSettings.wirelessEnabled
 				text: qsTr("Available")
-				font.pixelSize: 16
-				font.family: "Lato"
-				font.weight: Font.Normal
 				horizontalAlignment: Text.AlignLeft
-				color: (Atmosphere.variant == "dark") ? "#ffffff" : "#000000"
 				Layout.leftMargin: 20
 				Layout.rightMargin: 20
 				Layout.topMargin: 10
@@ -106,8 +100,21 @@ CutiePage {
 			}
 		}
 
-		footer: Item {
-			height: footbutton.height + 40
+		menu: CutieMenu {
+			CutieMenuItem {
+				text: qsTr("Saved Networks")
+				onTriggered: {
+					if (page.savedPage.status === Component.Ready) {
+						mainWindow.pageStack.push(page.savedPage, {});
+					}
+				}
+			}
+			CutieMenuItem {
+				text: qsTr("Refresh")
+				onTriggered: {
+					CutieWifiSettings.requestScan();
+				}
+			}
 		}
 	}
 
@@ -123,19 +130,5 @@ CutiePage {
 		font.weight: Font.Normal
 		color: (Atmosphere.variant == "dark") ? "white" : "black"
 		elide: Text.ElideRight
-	}
-
-	CutieButton {
-		id: footbutton
-		anchors.bottom: parent.bottom
-		anchors.left: parent.left
-		anchors.right: parent.right
-		anchors.margins: 20
-		buttonText: qsTr("Saved Networks")
-		onClicked: {
-			if (page.savedPage.status === Component.Ready) {
-				mainWindow.pageStack.push(page.savedPage, {});
-			}
-		}
 	}
 }
