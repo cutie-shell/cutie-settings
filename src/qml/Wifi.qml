@@ -1,6 +1,6 @@
-import Cutie 1.0
-import QtQuick 2.14
-import QtQuick.Layouts 1.15
+import Cutie
+import QtQuick
+import QtQuick.Layouts
 
 CutiePage {
 	id: page
