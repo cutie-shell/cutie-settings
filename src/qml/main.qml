@@ -15,6 +15,11 @@ CutieWindow {
 			component: Qt.createComponent("Wifi.qml")
 		},
 		{
+			text: qsTr("Mobile Network"),
+			icon: "qrc:///icons/network-cellular-connected.svg",
+			component: Qt.createComponent("MobileNetwork.qml")
+		},
+		{
 			text: qsTr("Audio"),
 			icon: "qrc:///icons/audio.svg",
 			component: Qt.createComponent("Audio.qml")

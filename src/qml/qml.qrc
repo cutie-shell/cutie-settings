@@ -6,5 +6,7 @@
         <file>WifiPsk.qml</file>
         <file>About.qml</file>
         <file>Audio.qml</file>
+        <file>MobileNetwork.qml</file>
+        <file>ApnCfg.qml</file>
     </qresource>
 </RCC>
