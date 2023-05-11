@@ -13,6 +13,26 @@ CutiePage {
 		anchors.fill: parent
 		spacing: 0
 
+		function updateActiveConnection() {
+			if (CutieMobileNetwork.activeConnection === ""
+				|| CutieMobileNetwork.activeConnection === "/") {
+					contextList.currentIndex = -1;
+				}
+			else for (let i = 0; i < CutieMobileNetwork.availableConnections.length; i++) {
+				if (CutieMobileNetwork.availableConnections[i].path
+					== CutieMobileNetwork.activeConnection) {
+						contextList.currentIndex = i;
+					}
+			}
+		}
+
+		Component.onCompleted: { updateActiveConnection(); }
+
+		Connections {
+			target: CutieMobileNetwork
+			onActiveConnectionChanged: { contextList.updateActiveConnection(); }
+		}
+
 		header: ColumnLayout {
 			width: parent.width
 			CutiePageHeader {
@@ -34,24 +54,34 @@ CutiePage {
 				}
 			}
 
-			Row {
+			Item {
 				id: mDataRow
 				Layout.leftMargin: 20
-				Layout.rightMargin: 20
 				Layout.topMargin: 10
 				Layout.bottomMargin: 3
+				width: parent.width - 35
+				height: dataToggle.height
+
 				CutieLabel {
 					text: qsTr("Mobile Data")
 					horizontalAlignment: Text.AlignLeft
 					topPadding: 10
 					bottomPadding: 10
+					anchors.left: parent.left
 				}
+				
 				CutieToggle {
 					id: dataToggle
 					checked: CutieMobileNetwork.mobileDataEnabled
+					enabled: CutieMobileNetwork.availableConnections.length > 0
+					anchors.right: parent.right
 
 					onToggled: {
-						CutieMobileNetwork.mobileDataEnabled = checked;
+						if (checked && contextList.currentIndex < 0
+							&& CutieMobileNetwork.availableConnections.length > 0) {
+							CutieMobileNetwork.activeConnection = 
+								CutieMobileNetwork.availableConnections[0].path;
+						} else CutieMobileNetwork.mobileDataEnabled = checked;
 					}
 				}
 			}
@@ -60,23 +90,22 @@ CutiePage {
 				text: qsTr("Access Point Names")
 				horizontalAlignment: Text.AlignLeft
 				Layout.leftMargin: 20
-				Layout.rightMargin: 20
 				Layout.topMargin: 10
 				Layout.bottomMargin: 3
+				width: parent.width - 35
+				font.weight: Font.Bold
+				font.pixelSize: 24
 			}
 
-			CutieButton {
-				visible: contextList.model.length < 1
-				Layout.fillWidth: true
-				Layout.alignment: Qt.AlignBottom
+			CutieLabel {
+				text: qsTr("No APNs found.")
+				horizontalAlignment: Text.AlignLeft
 				Layout.leftMargin: 20
-				Layout.rightMargin: 20
 				Layout.topMargin: 10
 				Layout.bottomMargin: 3
-				text: "+"
-				onClicked: {
-					mainWindow.pageStack.push(mobileDataPage.apnPage);
-				}
+				width: parent.width - 35
+				wrapMode: Text.WordWrap
+				visible: CutieMobileNetwork.availableConnections.length < 1
 			}
 		}
 
@@ -87,8 +116,38 @@ CutiePage {
 				id: litem
 				text: modelData.name
 				subText: modelData.apn
+            	highlighted: contextList.currentIndex == index
+
 				onClicked: {
-					mainWindow.pageStack.push(mobileDataPage.apnPage, {apnData: modelData});
+					contextList.currentIndex = index;
+					CutieMobileNetwork.activeConnection = modelData.path;
+				}
+
+				menu: CutieMenu {
+					id: optionRow
+					CutieMenuItem {
+						id: editBtn
+						text: qsTr("Edit")
+						onTriggered: {
+							mainWindow.pageStack.push(mobileDataPage.apnPage, {apnData: modelData});
+						}
+					}
+					CutieMenuItem {
+						id: deleteBtn
+						text: qsTr("Remove")
+						onTriggered: {
+							CutieMobileNetwork.deleteConnection(modelData.path);
+						}
+					}
+				}
+			}
+		}
+
+		menu: CutieMenu {
+			CutieMenuItem {
+				text: qsTr("New APN")
+				onTriggered: {
+					mainWindow.pageStack.push(mobileDataPage.apnPage);
 				}
 			}
 		}
