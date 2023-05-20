@@ -8,3 +8,5 @@ TryExec=/usr/bin/cutie-settings
 Icon=cutie-settings
 Terminal=false
 StartupNotify=false
+Comment=System Settings
+Categories=System
