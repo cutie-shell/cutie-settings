@@ -12,8 +12,7 @@ set(cutie-settings_SOURCES
 )
 
 qt_add_resources(APP_RESOURCES 
-	${CMAKE_SOURCE_DIR}/src/qml/qml.qrc
-	${CMAKE_SOURCE_DIR}/icons/icons.qrc)
+	${CMAKE_SOURCE_DIR}/src/qml/qml.qrc)
 
 qt_add_executable(cutie-settings ${cutie-settings_SOURCES} ${APP_RESOURCES})
 
