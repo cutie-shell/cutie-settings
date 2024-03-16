@@ -34,12 +34,12 @@ CutiePage {
 				&& "connection" in modelData.data &&
 				(CutieWifiSettings.accessPoints.filter(
 				e => e.data["Ssid"] == modelData.data.connection.id)
-				.length > 0) ? ("qrc:///icons/network-wireless-signal-" + (
-				Math.floor((CutieWifiSettings.accessPoints.filter(
+				.length > 0) ? ("image://icon/network-wireless-signal-" +
+				iconHelper.names[Math.floor((CutieWifiSettings.accessPoints.filter(
 				e => e.data["Ssid"] == modelData.data.connection.id
-				)[0].data["Strength"] - 1) / 20)
-				).toString() + ".svg") 
-				: "qrc:///icons/network-wireless-offline.svg"
+				)[0].data["Strength"] - 1) / 20)]
+				+ "-symbolic") 
+				: "image://icon/network-wireless-offline-symbolic"
 			onClicked: {
 				menu.open();
 			}

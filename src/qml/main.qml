@@ -11,22 +11,22 @@ CutieWindow {
 	property var pages: [
 		{
 			text: qsTr("Wi-Fi"),
-			icon: "qrc:///icons/network-wireless.svg",
+			icon: "image://icon/network-wireless-symbolic",
 			component: Qt.createComponent("Wifi.qml")
 		},
 		{
 			text: qsTr("Mobile Network"),
-			icon: "qrc:///icons/network-cellular-connected.svg",
+			icon: "image://icon/network-cellular-symbolic",
 			component: Qt.createComponent("MobileNetwork.qml")
 		},
 		{
 			text: qsTr("Audio"),
-			icon: "qrc:///icons/audio.svg",
+			icon: "image://icon/audio-speakers-symbolic",
 			component: Qt.createComponent("Audio.qml")
 		},
 		{
 			text: qsTr("About"),
-			icon: "qrc:///icons/info.svg",
+			icon: "image://icon/help-about-symbolic",
 			component: Qt.createComponent("About.qml")
 		}
 	]

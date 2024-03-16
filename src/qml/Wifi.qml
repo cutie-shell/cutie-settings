@@ -6,6 +6,12 @@ CutiePage {
 	id: page
 	property var pskPage: Qt.createComponent("WifiPsk.qml")
 	property var savedPage: Qt.createComponent("SavedWifis.qml")
+
+	QtObject {
+		id: iconHelper
+		property var names: ["none", "weak", "ok", "good", "excellent"]
+	}
+
 	CutieListView {
 		model: CutieWifiSettings.accessPoints
 		anchors.fill: parent
@@ -46,9 +52,9 @@ CutiePage {
 			CutieListItem {
 				Layout.fillWidth: true
 				visible: CutieWifiSettings.activeAccessPoint
-				icon.source: visible ? ("qrc:///icons/network-wireless-signal-" + (
-					Math.floor((CutieWifiSettings.activeAccessPoint.data["Strength"] - 1) / 20)
-				).toString() + ".svg") : ""
+				icon.source: visible ? ("image://icon/network-wireless-signal-" +
+					iconHelper.names[Math.floor((CutieWifiSettings.activeAccessPoint.data["Strength"] - 1) / 20)]
+				+ "-symbolic") : ""
 				text: visible ? CutieWifiSettings.activeAccessPoint.data["Ssid"] : ""
 				subText: visible ? ((CutieWifiSettings.activeAccessPoint.data["Frequency"] > 4 ? "5GHz " : "2.4GHz ") 
 					+ ((CutieWifiSettings.activeAccessPoint.data["Flags"] & 0x1) == 0 ? "Open" : 
@@ -74,9 +80,9 @@ CutiePage {
 			width: parent ? parent.width : 0
 			CutieListItem {
 				id: litem
-				icon.source: ("qrc:///icons/network-wireless-signal-" + (
-					Math.floor((modelData.data["Strength"] - 1) / 20)
-				).toString() + ".svg")
+				icon.source: ("image://icon/network-wireless-signal-" +
+					iconHelper.names[Math.floor((modelData.data["Strength"] - 1) / 20)]
+				+ "-symbolic")
 				text: modelData.data["Ssid"]
 				subText: ((modelData.data["Frequency"] > 4000 ? "5GHz " : "2.4GHz ") 
 					+ ((modelData.data["Flags"] & 0x1) == 0 ? "Open" : 

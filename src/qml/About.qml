@@ -17,14 +17,12 @@ CutiePage {
 		anchors.top: header.bottom
 		anchors.topMargin: 20
 		anchors.horizontalCenter: parent.horizontalCenter
-		source: "qrc:///icons/cutie.png"
+		source: "image://icon/cutie-shell"
 	}
 
-	Text {
+	CutieLabel {
 		text: "Cutie Shell"
-		font.family: "Lato"
 		font.pixelSize: 20
-		color: (Atmosphere.variant == "dark") ? "#ffffff" : "#000000"
 		anchors.top: logo.bottom
 		anchors.topMargin: 10
 		anchors.horizontalCenter: parent.horizontalCenter
